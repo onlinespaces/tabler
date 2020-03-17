@@ -1,227 +1,221 @@
-title: Tabler
-description: tabler.github.io - a responsive, flat and full featured admin template
+source: pages
+destination: tmp
 
-source: src
-host: 0.0.0.0
+version: 1.0.0-alpha.4
+title: Tabler
+description: Premium and Open Source dashboard template with responsive and high quality UI.
+github_url: https://github.com/tabler/tabler
+sponsor_url: https://github.com/sponsors/codecalm
+
+mapbox_key: pk.eyJ1IjoiY29kZWNhbG0iLCJhIjoiSzRiOVJvQSJ9.BUVkTT6IYs83xSUs4H7bjQ
+
+debug: false
+
+dark-theme: false
 
 plugins:
-  - jekyll-tidy
-  - jekyll-toc
   - jekyll-random
+  - jekyll-toc
+  - jekyll-tidy
+  - jekyll-timeago
+  - jekyll-redirect-from
+
+tabler-plugins:
+  - tabler-flags
+  - tabler-payments
+  - tabler-buttons
 
 exclude:
-  - regenerate-images.sh
-  - .editorconfig
-  - buddy.yml
-  - package.json
-  - gulpfile.js
-  - start.sh
-  - Gemfile
-  - Gemfile.lock
-  - .git
-  - .idea
-  - .gitignore
-  - node_modules/
-  - .DS_Store
-  - .sass-cache/
-  - .asset-cache/
-  - push-to-repo.sh
-  - commits.sh
-  - assets/scss/*
-  - assets/plugins/**/*.scss
+  - .jekyll-cache
 
-collections:
-  docs:
-    output: true
-
-defaults:
-  - scope:
-      path: ""
-      type: docs
-    values:
-      layout: docs
-
+keep_files:
+  - css/ui-kit.css
+  - css/dark.css
+  - css/rtl.css
 
 markdown: kramdown
-highlighter: rouge
-
 kramdown:
+  input: GFM
   syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    css_class: ''
-    span:
-      line_numbers: false
-
-toc:
-  min_level: 2
-  max_level: 3
 
 jekyll_tidy:
   compress_html: false
   ignore_env: development
 
-base_color: '#467fcf'
-github_url: https://github.com/tabler/tabler
+toc:
+  min_level: 2
+  max_level: 3
+  list_class: list-unstyled
 
-author:
-   name: codecalm.net
-   url: https://codecalm.net
+collections:
+  docs:
+    output: true
+  changelog:
+    output: false
+  components:
+    output: true
 
-docs-menu:
-  - title: Getting started
-    pages: [index]
-  - title: Components
-    pages: [alerts, avatars, buttons, colors, cards, charts, form-components, tags, typography]
+defaults:
+  - scope:
+      type: "pages"
+      path: "*.md"
+    values:
+      layout: markdown
+
+  - scope:
+      type: "pages"
+    values:
+      layout: default
+  - scope:
+      type: "docs"
+    values:
+      layout: docs
+      toc: true
+#  - scope:
+#      type: "components"
+#    values:
+#      layout: component
+
 
 colors:
   blue:
-    hex: '#467fcf'
-    name: Blue
+    hex: '#206bc4'
+    title: Blue
   azure:
     hex: '#45aaf2'
-    name: Azure
+    title: Azure
   indigo:
     hex: '#6574cd'
-    name: Indigo
+    title: Indigo
   purple:
     hex: '#a55eea'
-    name: Purple
+    title: Purple
   pink:
     hex: '#f66d9b'
-    name: Pink
+    title: Pink
   red:
-    hex: '#e74c3c'
-    name: Red
+    hex: '#fa4654'
+    title: Red
   orange:
     hex: '#fd9644'
-    name: Orange
+    title: Orange
   yellow:
     hex: '#f1c40f'
-    name: Yellow
+    title: Yellow
   lime:
     hex: '#7bd235'
-    name: Lime
+    title: Lime
   green:
     hex: '#5eba00'
-    name: Green
+    title: Green
   teal:
     hex: '#2bcbba'
-    name: Teal
+    title: Teal
   cyan:
     hex: '#17a2b8'
-    name: Cyan
+    title: Cyan
   gray:
     hex: '#868e96'
-    name: Gray
-  gray-dark:
-    hex: '#343a40'
-    name: Dark gray
+    title: Gray
 
-theme-colors:
+colors-extra:
+  white:
+    hex: '#ffffff'
+    title: White
+  dark:
+    hex: '#303645'
+    title: Dark
+
+variants:
+  - name: success
+    icon: check
+  - name: info
+    icon: info
+  - name: warning
+    icon: alert-triangle
+  - name: danger
+    icon: x-octagon
+
+button-variants:
   primary:
-    hex: '#467fcf'
-    name: Primary
+    class: primary
+    title: Primary
   secondary:
-    hex: '#868e96'
-    name: Secondary
+    class: secondary
+    title: Secondary
   success:
-    hex: '#38c172'
-    name: Success
-  info:
-    hex: '#17a2b8'
-    name: Info
+    class: success
+    title: Success
   warning:
-    hex: '#f8b700'
-    name: Warning
+    class: warning
+    title: Warning
   danger:
-    hex: '#f90049'
-    name: Danger
-#  light:
-#    hex: '#f8f9fa'
-#    name: Light
-#  dark:
-#    hex: '#343a40'
-#    name: Dark
+    class: danger
+    title: Danger
+  info:
+    class: info
+    title: Info
+  light:
+    class: light
+    title: Light
+  dark:
+    class: dark
+    title: Dark
+  link:
+    class: link
+    title: Link
 
-color_variants:
-  - name: 'Darkest'
-    suffix: -darkest
-  - name: 'Darker'
-    suffix: -darker
-  - name: 'Dark'
-    suffix: -dark
-  - name: 'Default'
-    suffix: ''
-  - name: 'Light'
-    suffix: -light
-  - name: 'Lighter'
-    suffix: -lighter
-  - name: 'Lightest'
-    suffix: -lightest
+button-states:
+  - class:
+    title: Normal
+  - class: active
+    title: Active state
+  - class: disabled
+    title: Disabled
 
-social-buttons:
+socials:
   facebook:
-    icon: fa fa-facebook
-    name: Facebook
+    icon: brand/facebook
+    title: Facebook
   twitter:
-    icon: fa fa-twitter
-    name: Twitter
+    icon: brand/twitter
+    title: Twitter
   google:
-    icon: fa fa-google
-    name: Google
+    icon: brand/google
+    title: Google
   youtube:
-    icon: fa fa-youtube
-    name: Youtube
+    icon: brand/youtube
+    title: Youtube
   vimeo:
-    icon: fa fa-vimeo
-    name: Vimeo
+    icon: brand/vimeo
+    title: Vimeo
   dribbble:
-    icon: fa fa-dribbble
-    name: Dribble
+    icon: brand/dribbble
+    title: Dribbble
   github:
-    icon: fa fa-github
-    name: Github
+    icon: brand/github
+    title: Github
   instagram:
-    icon: fa fa-instagram
-    name: Instagram
+    icon: brand/instagram
+    title: Instagram
   pinterest:
-    icon: fa fa-pinterest
-    name: Pinterest
+    icon: brand/pinterest
+    title: Pinterest
   vk:
-    icon: fa fa-vk
-    name: VKontakte
+    icon: brand/vk
+    title: VK
   rss:
-    icon: fa fa-rss
-    name: RSS
+    icon: brand/rss
+    title: RSS
   flickr:
-    icon: fa fa-flickr
-    name: Flickr
+    icon: brand/flickr
+    title: Flickr
   bitbucket:
-    icon: fa fa-bitbucket
-    name: Bitbucket
+    icon: brand/bitbucket
+    title: Bitbucker
+  tabler:
+    icon: brand/tabler
+    title: Tabler
 
-google-maps-key: AIzaSyBEJy4UvF-JfcNciWlvlznyDlUckcspiD4
-google-maps-url: https://maps.googleapis.com/maps/api/js?key=AIzaSyCOJwXN0eoyeFZ3cYtGzPLFw8zGhQ750Xk
-
-theme-plugins:
-  charts-c3:
-    name: c3.js Charts
-    files: [css, js]
-  maps-google:
-    name: Google Maps
-    files: [css, js]
-  input-mask:
-    name: Input Mask
-    files: [js]
-#  iconfonts:
-#    name: Iconfonts
-#    files: [css]
-#  prismjs:
-#    name: Code Highlight
-#    files: [css, js]
-#  fullcalendar:
-#    name: FullCalendar
-#    files: [css, js]
-#  weather:
-#    name: Weather
-#    files: [css]
+months_short: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+months_long: ['January', 'Febuary', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
